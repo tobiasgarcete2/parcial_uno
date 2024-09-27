@@ -23,7 +23,9 @@ export const signInCtrl = async (req, res) => {
 
 export const signUpCtrl = async (req, res) => {
   try {
-    // ! Completar la función signUpCtrl
+    // !Completar la función signUpCtrl
+    const newUser = await createUser(req.body);
+    res.status(201).json(newUser);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -31,7 +33,9 @@ export const signUpCtrl = async (req, res) => {
 
 export const signOutCtrl = (_req, res) => {
   try {
-    // ! Completar la función signOutCtrl
+    // !Completar la función signOutCtrl
+    res.clearCookie("token");
+
     res.status(200).json({ message: "Sign out success" });
   } catch (error) {
     res.status(500).json({ message: error.message });

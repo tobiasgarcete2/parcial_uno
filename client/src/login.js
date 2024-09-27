@@ -23,9 +23,14 @@ $form.addEventListener("submit", async (e) => {
     body: JSON.stringify(entries),
   }).then((response) => {
     if (response.ok) {
-      // ! REDIRIGIR AL USUARIO A LA PÁGINA PRINCIPAL
+      
+      window.location.href = "/index.html";
     } else {
-      // ! MOSTRAR UN MENSAJE DE ERROR AL USUARIO
+
+      const errorMessage = document.getElementById("error-message");
+      errorMessage.textContent = "Error al iniciar sesión";
+      errorMessage.classList.remove("hidden");
     }
   });
 });
+
